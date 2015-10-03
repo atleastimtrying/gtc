@@ -4,7 +4,6 @@
  */
 
 var express = require('express');
-var browserify = require('browserify-middleware');
 var routes = require('./routes');
 var MongoClient = require('mongodb').MongoClient;
 var app = express();
