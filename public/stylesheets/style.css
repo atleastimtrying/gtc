@@ -1,0 +1,59 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:sans-serif;
+  font-weight:lighter;
+}
+
+body{
+  background-color: white;
+  transition:background-color 0.05s ease-out;
+}
+
+body.flash{
+  background-color: #7FC3EC;
+}
+
+h1{
+}
+
+.wrapper{
+  display:flex;
+  flex-direction:column;
+  height: 100vh;
+  max-width: 400px;
+  margin: 0 auto;
+  border-left: 2px solid #111;
+  border-right: 2px solid #111;
+}
+
+.colour,
+.input,
+.selections{
+  flex:1;
+  border-bottom:2px solid #111;
+}
+
+.selections{
+  flex: 0.5;
+  display:flex;
+}
+.input{
+  border-bottom:0;
+  cursor: pointer;
+  padding: 16px;
+}
+.input video{
+  width: 100%;
+}
+
+.selections .selection{
+  flex: 1;
+  border-right:2px solid #111;
+  cursor: pointer;
+}
+
+.selections .selection:last-child{
+  border-right: 0;
+}

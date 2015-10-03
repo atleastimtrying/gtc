@@ -1,0 +1,19 @@
+index
+ start a new game
+  - create code pair
+  - present join code
+
+ join a game
+  - user provides join code
+  - user gets provided with a request code
+  - game master click start
+
+ start game
+  U emit start game with code
+  S broadcast start game event with colour
+  S emit end game event
+  U emit colour choice
+  S emit winner
+
+
+  As a user when I start a game I can see
