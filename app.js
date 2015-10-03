@@ -40,7 +40,7 @@ http.listen(app.get('port'), function(){
 });
 
 var generate_code = function(){
-  return (Math.ceil(Math.random() * 10000));
+  return "foo" + (Math.ceil(Math.random() * 10000));
 };
 
 var generate_colour = function(){
@@ -48,22 +48,27 @@ var generate_colour = function(){
 };
 
 var code;
+var players = [];
 
 io.on('connection', function(socket){
   socket.on('create_game', function(){
     code = generate_code();
-    socket.emit('generated_code', code);
+    socket.emit('code_created', code);
+    console.log('code generated');
   });
 
   socket.on('start_game', function(){
-    socket.emit('start!');
+    console.log('game started');
+    socket.broadcast.emit('play_game', code);
     setTimeout(function(){
       socket.emit('end');
     });
   });
 
-  socket.on('join', function(){
-    socket.emit('joined', code);
+  socket.on('join', function(player){
+    players.push(player);
+    socket.broadcast.emit('new_player', player);
+    console.log('player joined: ' + player.name);
   });
 
   socket.on('disconnect', function(){

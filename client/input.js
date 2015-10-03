@@ -14,13 +14,13 @@ module.exports = React.createClass({
     this.loop();
   },
 
+  componentWillUnmount: function(){
+    canvas_video.stop();
+  },
+
   loop: function(){
     this.setState({ colour: this.calculate_rgb() });
     setTimeout(this.loop, 500);
-  },
-
-  componentWillUnmount: function(){
-    canvas_video.stop();
   },
 
   add_selection: function(){
