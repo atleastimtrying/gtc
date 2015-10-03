@@ -44,6 +44,10 @@ var generate_code = function(){
   return (Math.ceil(Math.random() * 10000));
 };
 
+var generate_colour = function(){
+  return "hsl(" + Math.round(360 * Math.random()) + ", 60%, 50%)";
+};
+
 var code;
 
 io.on('connection', function(socket){
