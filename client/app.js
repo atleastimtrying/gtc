@@ -3,7 +3,6 @@ var socket = io();
 module.exports = React.createClass({
   displayName: "App",
   componentDidMount: function(){
-    console.log('game bound');
     socket.on('play_game', this.play_game);
   },
   play_game: function(code){
