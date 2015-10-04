@@ -10,15 +10,15 @@ module.exports = React.createClass({
   },
 
   remove_selection: function(colour){
-    var new_selections = this.state.selections.filter(function(selection){
+    var selections = this.state.selections.filter(function(selection){
       return selection !== colour;
     });
-    this.setState({selections: new_selections});
+    this.setState({selections: selections});
   },
 
   add_selection: function(selection){
-    this.state.selections.push(selection);
-    this.setState(this.state);
+    var selections = this.state.selections.concat([selection]);
+    this.setState({selections: selections});
   },
 
   render: function(){

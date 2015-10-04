@@ -20,13 +20,12 @@ module.exports = React.createClass({
   },
 
   new_player: function(player){
-    this.state.players.push(player);
-    this.setState(this.state);
+    var players = this.state.players.concat([player]);
+    this.setState({players: players});
   },
 
   code_created: function(code){
-    this.state.code = code;
-    this.setState(this.state);
+    this.setState({code: code});
   },
 
   show_code: function(){
