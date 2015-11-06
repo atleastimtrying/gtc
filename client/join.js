@@ -11,8 +11,9 @@ module.exports = React.createClass({
     var code = this.refs.code.getDOMNode().value;
     var name = this.refs.name.getDOMNode().value;
     localStorage.setItem('code', code);
-    this.setState({code: code, name: name, state: 'joined', colour: 'aliceblue'});
-    socket.emit('join', {code: code, name: name, state: 'joined', colour: 'aliceblue'});
+    this.setState({code: code, name: name, state: 'joined', colour: 'aliceblue'}, function(){
+      socket.emit('join', this.state);
+    });
   },
 
   render: function(){
